@@ -3,9 +3,29 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+    var socket = io();
+
+    socket.on('connect', function() {
+      console.log('Connected!');
+    });
+
+    socket.on('tweet_received', function(tweet) {
+      console.log(tweet);
+    });
+  </script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+
+
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <div id="tweet-container"></div>
+
   </body>
 </html>
