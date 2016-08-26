@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/tweets', function (req, res, next) {
-  var newJoke = new Joke (req.object.value)
+  var newJoke = new Joke (res.value.joke)
   newJoke.save(function(err) {
     if (err) {
       res.status(500).send()
