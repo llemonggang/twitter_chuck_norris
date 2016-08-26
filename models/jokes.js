@@ -1,4 +1,4 @@
-// const mongoose = require('mongoose'); do we need mongoose?
+const mongoose = require('mongoose');
 
 var jokeSchema = {
   joke: String,
