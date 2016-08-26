@@ -1,21 +1,22 @@
 $(document).ready(function () {
-  postJoke()
-  tweetJoke()
-});
+  getRandomJoke()
+  $('#get-new-joke-btn').on('click', function (e) {
+    e.preventDefault()
+    getRandomJoke()
+  })
 
-function postJoke() {
-  $('#get-joke').on('click', function (e) {
-    e.preventDefault();
-    $('#get-new-joke').on('click', function (e) {
-      e.preventDefault();
-    })
+  $('#tweet-joke-btn').on('click', function (e) {
+    e.preventDefault()
+    tweetJoke()
+  })
+})
 
-    $.ajax({
-      url: 'http://api.icndb.com/jokes/random/',
-      }).done(function(data) {
-        $('#joke').text(data.value.joke)
-          console.log(data);
-      });
+function getRandomJoke() {
+  $.ajax({
+    url: 'http://api.icndb.com/jokes/random/'
+  })
+  .done(function (data) {
+    $('#joke').text(data.value.joke)
   })
 }
 
@@ -26,8 +27,8 @@ function tweetJoke() {
     data: {
       joke: $('#joke').text()
     }
-  }).done(function (data) {
-    console.log(data);
-    postJoke();
+  })
+  .done(function (data) {
+    getRandomJoke()
   })
 }
