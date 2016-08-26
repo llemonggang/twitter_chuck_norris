@@ -10,10 +10,13 @@ function postJoke() {
     $.ajax({
       url: 'http://api.icndb.com/jokes/random/',
       method: 'GET'
-    }).done(function(data) {
-      console.log('working');
-    })
-
-
-  });
+      }).done(function(data) {
+          console.log(data);
+          var joke = data;
+            $.ajax({
+              // url:
+              method: 'POST'
+      });
+    });
+  })
 }
