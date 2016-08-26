@@ -13,10 +13,6 @@ function postJoke() {
       }).done(function(data) {
           console.log(data);
           var joke = data;
-            $.ajax({
-              // url:
-              method: 'POST'
       });
-    });
   })
 }
